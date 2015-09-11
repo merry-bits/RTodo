@@ -1,0 +1,131 @@
+html {
+  background: white;
+  font-size: 120%;
+}
+
+body {
+  margin: 0.8em 2% 0.2em;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: sans-serif;
+  margin: 0.2em 0 0.8em;
+}
+
+input, button {
+  font-size: inherit;
+  line-height: 2em;
+}
+
+input[type=submit], button {
+  font-family: sans-serif;
+}
+
+hr {
+  border: 1px solid black;
+  margin: 0.4em 0;
+}
+
+.todo-form {
+  margin: 2em 0;
+}
+
+.todo-form input {
+  display: inline-block;
+}
+
+.todo-form input[type=text] {
+  width: calc(75% - 0.5em - 2 * 0.6em);
+  padding: 0 0.6em;
+  margin-right: 0.5em;
+  display: inline-block;
+}
+
+.todo-form input[type=submit] {
+  width: calc(25% - 0.5em);
+  float: right;
+}
+
+.todo-form input[type=submit]:after {
+  clear: right;
+}
+
+.todos-list {
+  margin: 2em 0;
+}
+
+.todos-list-enter {
+  opacity: 0.01;
+}
+
+.todos-list-enter.todos-list-enter-active {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+
+.todos-list-leave.todos-list-leave-active {
+  opacity: 0.01;
+  transition: opacity .1s ease-out;
+}
+
+.todo {
+  margin: 0.8em 0;
+  line-height: 2em;
+}
+
+.todo label {
+  padding-left: 0.2em;
+}
+
+.todo button {
+  float: right;
+}
+
+.todo input[type=checkbox]:checked + label {
+  text-decoration: line-through;
+  opacity: 0.66;
+}
+
+.todo button:after {
+  clear:right;
+}
+
+.todos-count {
+  font-style: italic;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  html {
+    font-size: 100%;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .divider-title {
+    display: none;
+  }
+
+  .title-add-container, .todos-list-container {
+    display: inline-block;
+  }
+
+  .title-add-container {
+    width: calc(33% - 2em);
+    vertical-align: top;
+    padding-right: 2em;
+  }
+
+  .todos-list-container {
+    width: calc(66% - 2em - 3px);
+    margin-top: 4em;
+    min-height: 100%;
+    vertical-align: bottom
+    margin-left: 1em;
+    border-left: 2px solid black;
+    padding-left: 2em;
+  }
+}

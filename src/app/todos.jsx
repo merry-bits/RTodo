@@ -11,6 +11,9 @@
   side id would have to be added to synch the client with the server.
 
 */
+
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 var Todo = React.createClass({
   onRemoveClick: function(e) {
     e.preventDefault();
@@ -24,9 +27,12 @@ var Todo = React.createClass({
       <div className="todo">
         {this.props.done
           ? <input type="checkbox" checked={true} disabled="disabled" />
-          : <input type="checkbox" checked={false} onChange={this.onTodoDone}/>
+          : <input type="checkbox" checked={false}
+              onChange={this.onTodoDone} id={"todo-" + this.props.todoId}
+            />
         }
-        <span>{this.props.children}</span>
+        <label htmlFor={"todo-" + this.props.todoId}
+        >{this.props.children}</label>
         {this.props.done
           ? <button onClick={this.onRemoveClick}>Remove</button>
           : null
@@ -48,8 +54,10 @@ var TodosList = React.createClass({
       );
     }, this);
     return (
-      <div className="comment-list">
-        {todosEntries}
+      <div className="todos-list">
+        <ReactCSSTransitionGroup transitionName="todos-list">
+          {todosEntries}
+        </ReactCSSTransitionGroup>
       </div>
     );
   },
@@ -122,17 +130,23 @@ var Todos = React.createClass({
     var left = this.state.todos.reduce((s, e) => s + (e.done ? 0 : 1), 0);
     return (
       <section className="todos-container">
-        <h1>Todos</h1>
-        <TodoForm onTodoSubmit={this.handleTodoSubmit} />
-        <TodosList todos={this.state.todos} todoAPI={todoAPI} />
-        <div className="todos-count">
-          {(left === 0
-            ? <span>no items left</span>
-            : (left == 1
-              ? <span>1 item left</span>
-              : <span>{left} items left</span>
-            )
-          )}
+        <div className="title-add-container">
+          <h1>Todos</h1>
+          <hr className="divider-title"/>
+          <TodoForm onTodoSubmit={this.handleTodoSubmit} />
+        </div>
+        <div className="todos-list-container">
+          <TodosList todos={this.state.todos} todoAPI={todoAPI} />
+          <hr />
+          <div className="todos-count">
+            {(left === 0
+              ? <span>no items left</span>
+              : (left == 1
+                ? <span>1 item left</span>
+                : <span>{left} items left</span>
+              )
+            )}
+          </div>
         </div>
       </section>
     );
