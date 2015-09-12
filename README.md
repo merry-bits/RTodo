@@ -9,7 +9,8 @@ The page was made for mobile first and changes slightly for screens bigger than
 
 ## Install and run
 
-Enter the project directory and us npm to install a http server:
+Enter the project directory and use [npm](https://www.npmjs.com/) to install a
+http server:
 ```bash
     $ npm install
 ```
@@ -28,8 +29,8 @@ The server delivers the files and the todo application can be reached on:
 The single page application resides in `src/app/todos.jsx`. It consists of the
 top React class `Todos` which owns all data and renders out the form for new
 elements and the list of existing ones. The list owns then the single todo
-elements which react to user imputs (check, remove) and call back up the
-hirarchy when something should happen.
+elements which react to user inputs (check, remove) and call back up the
+hierarchy when something should happen.
 
 
 ## Storage
