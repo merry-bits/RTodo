@@ -73,7 +73,9 @@ var TodoForm = React.createClass({
   render: function() {
     return (
       <form className="todo-form" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="New todo" ref="todoText" />
+        <input type="text" placeholder="New todo" ref="todoText"
+          autoFocus={true}
+        />
         <input type="submit" value="Add" />
       </form>
     );

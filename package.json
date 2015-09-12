@@ -1,7 +1,8 @@
 {
-  "name": "HTodo",
+  "name": "RTodo",
   "version": "0.0.0",
-  "description": "https://blog.risingstack.com/the-react-way-getting-started-tutorial/",
+  "description": "",
+  "repository": "None",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
